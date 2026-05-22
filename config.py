@@ -15,9 +15,10 @@ load_dotenv()
 
 # ─── API Keys ────────────────────────────────────────────────────────────────
 
-GROK_API_KEY: str = os.getenv("GROK_API_KEY", "")
-TAVILY_API_KEY: str = os.getenv("TAVILY_API_KEY", "")
+import streamlit as st
 
+GROK_API_KEY: str = os.getenv("GROK_API_KEY") or st.secrets.get("GROK_API_KEY", "")
+TAVILY_API_KEY: str = os.getenv("TAVILY_API_KEY") or st.secrets.get("TAVILY_API_KEY", "")
 
 # ─── Grok / xAI Settings ─────────────────────────────────────────────────────
 
